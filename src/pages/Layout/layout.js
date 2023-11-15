@@ -4,8 +4,7 @@ import ResponsiveDrawer from '../Navbar'
 export default function Layout({children}) {
   return (
     <React.Fragment>
-        <ResponsiveDrawer />
-        {children}
+        <ResponsiveDrawer children = {children} />
     </React.Fragment>
   )
 }

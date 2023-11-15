@@ -26,7 +26,6 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Button from "@mui/material/Button";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
-import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import FoundationIcon from '@mui/icons-material/Foundation';
 import img1 from "../Images/avatar.jpg";
 import "./Navbar.css";
@@ -34,8 +33,7 @@ import { Avatar } from "@mui/material";
 
 const drawerWidth = 240;
 
-function ResponsiveDrawer(props) {
-  const { window } = props;
+function ResponsiveDrawer({children}) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -97,10 +95,10 @@ function ResponsiveDrawer(props) {
       <AppBar
         position="fixed"
         sx={{
-          width: "1680px",
+          // width: "1680px",
           background: "white",
           color: "black",
-          // width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           justifyContent: "space-between",
         }}
@@ -115,7 +113,7 @@ function ResponsiveDrawer(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            
           >
             <MenuIcon />
           </IconButton>
@@ -247,7 +245,7 @@ function ResponsiveDrawer(props) {
         }}
       >
         <Toolbar />
-        <Box sx={{ color: "#888", display: "flex", alignItems: "center" }}>
+        <Box className='dashboardh' sx={{ color: "#888", display: "flex", alignItems: "center" }}>
           <h2>DashBoard</h2>
           <Button
             sx={{
@@ -259,6 +257,7 @@ function ResponsiveDrawer(props) {
             This Month
           </Button>
         </Box>
+          <Box>{children}</Box>
       </Box>
     </Box>
   );
