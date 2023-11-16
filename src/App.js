@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css';
+import "./App.css";
 import Layout from "./pages/Layout/layout";
 import Dashboard from "./pages/Dashboard";
 
@@ -8,7 +8,7 @@ const App = () => {
     <>
       <Layout>
         <div className="heading">
-        <Dashboard/>
+          <Dashboard />
         </div>
       </Layout>
     </>

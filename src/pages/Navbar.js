@@ -6,13 +6,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import SettingsIcon from "@mui/icons-material/Settings";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
+import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -26,14 +26,17 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Button from "@mui/material/Button";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
-import FoundationIcon from '@mui/icons-material/Foundation';
+import FoundationIcon from "@mui/icons-material/Foundation";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+import ViewInArIcon from "@mui/icons-material/ViewInAr";
+import PeopleIcon from "@mui/icons-material/People";
 import img1 from "../Images/avatar.jpg";
 import "./Navbar.css";
 import { Avatar } from "@mui/material";
 
 const drawerWidth = 240;
 
-function ResponsiveDrawer({children}) {
+function ResponsiveDrawer({ children }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -47,7 +50,11 @@ function ResponsiveDrawer({children}) {
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <FoundationIcon sx={{fontSize:'40px'}} /> : <LoyaltyIcon />}
+                {index % 2 === 0 ? (
+                  <FoundationIcon sx={{ fontSize: "40px", color: "green" }} />
+                ) : (
+                  <LoyaltyIcon />
+                )}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -55,24 +62,37 @@ function ResponsiveDrawer({children}) {
         ))}
       </List>
       <List>
-        {["DashBoard", "Loyality", "Send email"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <DashboardIcon /> : <LoyaltyIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {["DashBoard", "Loyality", "Gift Cards", "Prepaid"].map(
+          (text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 4 === 0 ? (
+                    <DashboardIcon />
+                  ) : index % 4 === 1 ? (
+                    <LoyaltyIcon />
+                  ) : index % 4 === 2 ? (
+                    <CardGiftcardIcon />
+                  ) : (
+                    <ViewInArIcon />
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          )
+        )}
       </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+      <List
+        sx={{
+          paddingTop: "500px",
+        }}
+      >
+        {["Setting", "Logout"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <SettingsIcon /> : <LogoutIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -113,7 +133,6 @@ function ResponsiveDrawer({children}) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            
           >
             <MenuIcon />
           </IconButton>
@@ -148,6 +167,12 @@ function ResponsiveDrawer({children}) {
                 sx={{ marginX: 1, backgroundColor: "#888" }}
               />
               <ChatIcon />
+              <Divider
+                orientation="vertical"
+                flexItem
+                sx={{ marginX: 1, backgroundColor: "#888" }}
+              />
+              <PeopleIcon />
               <Divider
                 orientation="vertical"
                 flexItem
@@ -242,10 +267,14 @@ function ResponsiveDrawer({children}) {
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          backgroundColor: "#F7F9FB",
         }}
       >
         <Toolbar />
-        <Box className='dashboardh' sx={{ color: "#888", display: "flex", alignItems: "center" }}>
+        <Box
+          className="dashboardh"
+          sx={{ color: "#888", display: "flex", alignItems: "center" }}
+        >
           <h2>DashBoard</h2>
           <Button
             sx={{
@@ -257,7 +286,7 @@ function ResponsiveDrawer({children}) {
             This Month
           </Button>
         </Box>
-          <Box>{children}</Box>
+        <Box>{children}</Box>
       </Box>
     </Box>
   );

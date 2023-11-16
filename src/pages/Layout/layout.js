@@ -1,10 +1,10 @@
-import React from 'react'
-import ResponsiveDrawer from '../Navbar'
+import React from "react";
+import ResponsiveDrawer from "../Navbar";
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   return (
     <React.Fragment>
-        <ResponsiveDrawer children = {children} />
+      <ResponsiveDrawer children={children} />
     </React.Fragment>
-  )
+  );
 }
