@@ -35,7 +35,6 @@ import "./Navbar.css";
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 
-
 const drawerWidth = 240;
 
 function ResponsiveDrawer({ children }) {
@@ -67,21 +66,37 @@ function ResponsiveDrawer({ children }) {
         {["DashBoard", "Loyality", "Gift Cards", "Prepaid"].map(
           (text, index) => (
             <ListItem key={text} disablePadding>
-              <Link to={text === "DashBoard" ? "/" : text === "Loyality" ? "/Hello" : "/newPage"} style={{ textDecoration: "none", color: "inherit" }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 4 === 0 ? (
-                    <DashboardIcon />
-                  ) : index % 4 === 1 ? (
-                    <LoyaltyIcon />
-                  ) : index % 4 === 2 ? (
-                    <CardGiftcardIcon />
-                  ) : (
-                    <ViewInArIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
+              <Link
+                to={
+                  text === "DashBoard"
+                    ? "/"
+                    : text === "Loyality"
+                    ? "/Hello"
+                    : "/newPage"
+                }
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <ListItemButton
+                  sx={{
+                    width: "200px",
+                    height: "48px",
+                    borderRadius: "12px",
+                    justifyContent: "center",
+                  }}
+                >
+                  <ListItemIcon>
+                    {index % 4 === 0 ? (
+                      <DashboardIcon />
+                    ) : index % 4 === 1 ? (
+                      <LoyaltyIcon />
+                    ) : index % 4 === 2 ? (
+                      <CardGiftcardIcon />
+                    ) : (
+                      <ViewInArIcon />
+                    )}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
               </Link>
             </ListItem>
           )
@@ -94,7 +109,7 @@ function ResponsiveDrawer({ children }) {
       >
         {["Setting", "Logout"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton >
               <ListItemIcon>
                 {index % 2 === 0 ? <SettingsIcon /> : <LogoutIcon />}
               </ListItemIcon>
@@ -116,7 +131,6 @@ function ResponsiveDrawer({ children }) {
       <AppBar
         position="fixed"
         sx={{
-          // width: "1680px",
           background: "white",
           color: "black",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -138,7 +152,13 @@ function ResponsiveDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           <div className="search">
-            <SearchIcon />
+            <SearchIcon sx={{
+              width: '34px',
+              height: '34px',
+              backgroundColor: "lightgrey",
+              borderRadius: "20px",
+
+            }}/>
           </div>
           <Box
             className="icons"
@@ -274,13 +294,21 @@ function ResponsiveDrawer({ children }) {
         <Toolbar />
         <Box
           className="dashboardh"
-          sx={{ color: "#888", display: "flex", alignItems: "center" }}
+          sx={{ color: "#888", display: "flex", alignItems: "center", fontFamily: 'Plus Jakarta Sans, sans-serif' }}
         >
           <h2>DashBoard</h2>
           <Button
             sx={{
+              width: '145px',
+              height: '44px',
               marginLeft: "auto",
               color: "#888",
+              backgroundColor: "white",
+              border: '1px solid gray',
+              fontFamily: 'Plus Jakarta Sans, sans-serif',
+              fontSize: "16px",
+              fontWeight: '500',
+              lineHeight: "24px",
             }}
           >
             This Month

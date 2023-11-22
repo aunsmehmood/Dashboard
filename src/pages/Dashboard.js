@@ -15,8 +15,8 @@ const Dashboard = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          maxWidth: "1152px",
-          maxHeight: "auto",
+          Width: "1168px",
+          Height: "843",
           backgroundColor: "#F7F9FB",
         }}
       >
@@ -44,8 +44,9 @@ const Dashboard = () => {
                     sx={{
                       borderRadius: "50%",
                       backgroundColor: "lightgrey",
-                      width: "30px",
-                      height: "30px",
+                      width: "42px",
+                      height: "42px",
+                      marginLeft: '10px',
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -53,7 +54,10 @@ const Dashboard = () => {
                   >
                     {card.icon}
                   </Box>
-                  <Box>
+                  <Box sx={{
+                    paddingLeft: "10px",
+                    gap: "3px",
+                  }}>
                     <Typography variant="subtitle2" color="text.secondary">
                       {card.subtitle}
                     </Typography>
