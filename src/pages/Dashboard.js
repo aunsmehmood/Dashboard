@@ -29,6 +29,7 @@ const Dashboard = () => {
                 Width: "270px",
                 height: "100px",
                 border: "1px solid #ccc",
+                borderRadius: "10px",
               }}
             >
               <CardContent>
@@ -36,9 +37,22 @@ const Dashboard = () => {
                   sx={{
                     display: "flex",
                     alignItems: "center",
+                    padding: "10px",
                   }}
                 >
-                  <Box sx={{ paddingRight: "5px" }}>{card.icon}</Box>
+                  <Box
+                    sx={{
+                      borderRadius: "50%",
+                      backgroundColor: "lightgrey",
+                      width: "30px",
+                      height: "30px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {card.icon}
+                  </Box>
                   <Box>
                     <Typography variant="subtitle2" color="text.secondary">
                       {card.subtitle}

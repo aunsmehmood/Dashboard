@@ -33,6 +33,8 @@ import PeopleIcon from "@mui/icons-material/People";
 import img1 from "../Images/avatar.jpg";
 import "./Navbar.css";
 import { Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
+
 
 const drawerWidth = 240;
 
@@ -65,6 +67,7 @@ function ResponsiveDrawer({ children }) {
         {["DashBoard", "Loyality", "Gift Cards", "Prepaid"].map(
           (text, index) => (
             <ListItem key={text} disablePadding>
+              <Link to={text === "DashBoard" ? "/" : text === "Loyality" ? "/Hello" : "/newPage"} style={{ textDecoration: "none", color: "inherit" }}>
               <ListItemButton>
                 <ListItemIcon>
                   {index % 4 === 0 ? (
@@ -79,6 +82,7 @@ function ResponsiveDrawer({ children }) {
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
+              </Link>
             </ListItem>
           )
         )}
@@ -101,9 +105,6 @@ function ResponsiveDrawer({ children }) {
       </List>
     </div>
   );
-
-  // Remove this const when copying and pasting into your project.
-  // const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box
@@ -280,7 +281,6 @@ function ResponsiveDrawer({ children }) {
             sx={{
               marginLeft: "auto",
               color: "#888",
-              backgroundColor: "lightgrey",
             }}
           >
             This Month
@@ -293,10 +293,6 @@ function ResponsiveDrawer({ children }) {
 }
 
 ResponsiveDrawer.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
   window: PropTypes.func,
 };
 
