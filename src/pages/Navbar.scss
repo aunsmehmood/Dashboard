@@ -1,0 +1,112 @@
+.search {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background-color: #F3F4F6;
+    ;
+    border-radius: 20px;
+    padding: 6px;
+  }
+  
+  .icons{
+    padding-right: 3px !important;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    margin-right: 10px;
+  }
+
+  .datepicker{
+              width: 145px;
+              height: 44px;
+              margin-left: auto !important;
+              color: #6B7280 !important;
+              background-color: white !important;
+              border: 1px solid #ccc !important;
+              border-radius: 10px !important;
+              font-size: "Plus Jakarta Sans" !important;
+              font-size: 15px !important;
+              font-weight: 500 !important;
+              line-height: 24px !important;
+            }
+  
+  .list-item{
+              width: 200px;
+              height: 48px;
+              border-radius: 12px;
+              justify-content: center;
+              font-family: 'Plus Jakarta Sans' !important;
+              font-weight: 500;
+              font-size: 14px;
+              line-height: 20px;
+              color: #9CA3AF !important;
+  }
+
+  .Toolbar{
+    color: #9CA3AF;
+    ;
+  }
+
+  .appbar{
+    box-shadow: none !important;
+  }
+
+
+  .icon-box{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    border: 1px solid #888;
+    padding: 8px;
+    border-radius: 6px;
+    margin-right: 20px;
+  }
+
+  .addlinkicon{
+                border: 1px solid #888;
+                border-radius: 6px;
+                margin-right: 20px;
+                width: 45px;
+                height: 36px;
+                display: flex;
+                padding: 8px;
+                align-items: center;
+  }
+  
+  .notification{
+                color: #FFA000;
+                margin-right: 20px;
+  }
+
+  .orcalo{
+                color: #38CAB5;
+                ;
+                font-weight: 500;
+                font-family: "Plus Jakarta Sans, sans-serif";
+                font-size: 14px;
+  }
+
+  .dashboard{
+            color: #374151;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 30px;
+            display: flex;
+            align-items: center;
+            font-family: "Plus Jakarta Sans";
+  }
+  .divider{
+    margin: 0 1rem !important;
+    background-color: "#888" !important;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .icons {
+      padding-right: 0;
+    }
+    .menu-icon {
+      display: none !important;
+    }
+  }

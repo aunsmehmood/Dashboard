@@ -26,18 +26,31 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Button from "@mui/material/Button";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
-import FoundationIcon from "@mui/icons-material/Foundation";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import PeopleIcon from "@mui/icons-material/People";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import img1 from "../Images/avatar.jpg";
-import "./Navbar.css";
+import img2 from '../Images/Logo.png';
+import "./Navbar.scss";
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
+import { ArrowDropDown } from "@mui/icons-material";
 
 const drawerWidth = 240;
 
 function ResponsiveDrawer({ children }) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -45,30 +58,17 @@ function ResponsiveDrawer({ children }) {
   };
 
   const drawer = (
-    <div>
+    <Box>
       <List>
-        {["Air Apple Cart"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <FoundationIcon sx={{ fontSize: "40px", color: "green" }} />
-                ) : (
-                  <LoyaltyIcon />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <img src={img2} alt="Newimage"/>
       </List>
       <List>
-        {["DashBoard", "Loyality", "Gift Cards", "Prepaid"].map(
+        {["Dashboard", "Loyality", "Gift Cards", "Prepaid"].map(
           (text, index) => (
             <ListItem key={text} disablePadding>
               <Link
                 to={
-                  text === "DashBoard"
+                  text === "Dashboard"
                     ? "/"
                     : text === "Loyality"
                     ? "/Hello"
@@ -76,14 +76,7 @@ function ResponsiveDrawer({ children }) {
                 }
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <ListItemButton
-                  sx={{
-                    width: "200px",
-                    height: "48px",
-                    borderRadius: "12px",
-                    justifyContent: "center",
-                  }}
-                >
+                <ListItemButton className="list-item">
                   <ListItemIcon>
                     {index % 4 === 0 ? (
                       <DashboardIcon />
@@ -95,7 +88,18 @@ function ResponsiveDrawer({ children }) {
                       <ViewInArIcon />
                     )}
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText
+                    primary={text}
+                  />
+                  {text !== "Dashboard" && (
+                    <ArrowDropDownIcon
+                      id="basic-button"
+                      aria-controls={open ? "basic-menu" : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                    />
+                  )}
                 </ListItemButton>
               </Link>
             </ListItem>
@@ -109,7 +113,7 @@ function ResponsiveDrawer({ children }) {
       >
         {["Setting", "Logout"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton >
+            <ListItemButton className="list-item">
               <ListItemIcon>
                 {index % 2 === 0 ? <SettingsIcon /> : <LogoutIcon />}
               </ListItemIcon>
@@ -118,7 +122,7 @@ function ResponsiveDrawer({ children }) {
           </ListItem>
         ))}
       </List>
-    </div>
+    </Box>
   );
 
   return (
@@ -128,22 +132,18 @@ function ResponsiveDrawer({ children }) {
       }}
     >
       <CssBaseline />
-      <AppBar
+      <AppBar className="appbar"
         position="fixed"
         sx={{
           background: "white",
-          color: "black",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
           justifyContent: "space-between",
         }}
       >
-        <Toolbar
-          sx={{
-            color: "grey",
-          }}
-        >
+        <Toolbar className="Toolbar">
           <IconButton
+          className="menu-icon"
             color="inherit"
             aria-label="open drawer"
             edge="start"
@@ -152,52 +152,27 @@ function ResponsiveDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           <div className="search">
-            <SearchIcon sx={{
-              width: '34px',
-              height: '34px',
-              backgroundColor: "lightgrey",
-              borderRadius: "20px",
-
-            }}/>
+            <SearchIcon/>
           </div>
           <Box
             className="icons"
-            sx={{
-              marginLeft: "auto",
-              display: "flex",
-              alignItems: "center",
-              padding: "8px",
-              marginRight: "10px",
-            }}
-          >
-            <Box
-              sx={{
-                marginLeft: "auto",
-                display: "flex",
-                alignItems: "center",
-                border: "1px solid #888",
-                padding: "8px",
-                borderRadius: "8px",
-                marginRight: "20px",
-              }}
             >
+            <Box className="icon-box">
               <LocalPhoneIcon />
-              <Divider
+              <Divider className="divider"
                 orientation="vertical"
                 flexItem
-                sx={{ marginX: 1, backgroundColor: "#888" }}
               />
               <ChatIcon />
-              <Divider
+              <Divider className="divider"
                 orientation="vertical"
                 flexItem
-                sx={{ marginX: 1, backgroundColor: "#888" }}
               />
               <PeopleIcon />
               <Divider
+              className="divider"
                 orientation="vertical"
                 flexItem
-                sx={{ marginX: 1, backgroundColor: "#888" }}
               />
               <EmailIcon />
             </Box>
@@ -208,39 +183,21 @@ function ResponsiveDrawer({ children }) {
             >
               <AppsIcon />
             </Box>
-            <Box
-              sx={{
-                border: "1px solid #888",
-                borderRadius: "8px",
-                marginRight: "20px",
-                width: "45px",
-                height: "36px",
-                display: "flex",
-                padding: "8px",
-                alignItems: "center",
-              }}
-            >
+            <Box className="addlinkicon">
               <AddLinkIcon />
             </Box>
-            <Box
-              sx={{
-                color: "#FFA000",
-                marginRight: "20px",
-              }}
-            >
+            <Box className="notification">
               <NotificationsIcon />
             </Box>
-            <Typography
-              sx={{
-                color: "green",
-                fontWeight: "500",
-              }}
-            >
+            <Typography className="orcalo">
               Orcalo Limited
             </Typography>
           </Box>
           <Box>
             <Avatar alt="img1" src={img1} />
+          </Box>
+          <Box>
+            <ArrowDropDown/>
           </Box>
         </Toolbar>
       </AppBar>
@@ -249,14 +206,12 @@ function ResponsiveDrawer({ children }) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
-          // container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
@@ -293,26 +248,25 @@ function ResponsiveDrawer({ children }) {
       >
         <Toolbar />
         <Box
-          className="dashboardh"
-          sx={{ color: "#888", display: "flex", alignItems: "center", fontFamily: 'Plus Jakarta Sans, sans-serif' }}
-        >
-          <h2>DashBoard</h2>
-          <Button
-            sx={{
-              width: '145px',
-              height: '44px',
-              marginLeft: "auto",
-              color: "#888",
-              backgroundColor: "white",
-              border: '1px solid gray',
-              fontFamily: 'Plus Jakarta Sans, sans-serif',
-              fontSize: "16px",
-              fontWeight: '500',
-              lineHeight: "24px",
+          className="dashboard">
+          <h2>Dashboard</h2>
+          <Button className="datepicker">
+            This Month
+            <ArrowDropDown />
+          </Button>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
             }}
           >
-            This Month
-          </Button>
+            <MenuItem onClick={handleClose}>Menu Item 1</MenuItem>
+            <MenuItem onClick={handleClose}>Menu Item 2</MenuItem>
+            <MenuItem onClick={handleClose}>Menu Item 3</MenuItem>
+          </Menu>
         </Box>
         <Box>{children}</Box>
       </Box>

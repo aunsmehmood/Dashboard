@@ -1,12 +1,23 @@
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import AutorenewIcon from '@mui/icons-material/Autorenew';
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
+import AdjustIcon from '@mui/icons-material/Adjust';
+import PersonPinIcon from '@mui/icons-material/PersonPin';
+import LocalActivityIcon from '@mui/icons-material/LocalActivity';
 export const cardData = [
     {
-      icon: <ShoppingCartCheckoutIcon />,
+      icon: <AutorenewIcon />,
       subtitle: "Total Points Spend",
       content: "£ 5240.21 ",
     },
     {
-      icon: <ShoppingCartCheckoutIcon />,
+      icon: <VolunteerActivismIcon />,
+      subtitle: "Total Points Spend",
+      content: "£ 9,963.54 ",
+    },
+    {
+      icon: <ChangeCircleIcon />,
       subtitle: "Total Points Spend",
       content: "£ 9,963.54 ",
     },
@@ -21,22 +32,17 @@ export const cardData = [
       content: "£ 9,963.54 ",
     },
     {
-      icon: <ShoppingCartCheckoutIcon />,
+      icon: <AdjustIcon />,
       subtitle: "Total Points Spend",
       content: "£ 9,963.54 ",
     },
     {
-      icon: <ShoppingCartCheckoutIcon />,
+      icon: <PersonPinIcon />,
       subtitle: "Total Points Spend",
       content: "£ 9,963.54 ",
     },
     {
-      icon: <ShoppingCartCheckoutIcon />,
-      subtitle: "Total Points Spend",
-      content: "£ 9,963.54 ",
-    },
-    {
-      icon: <ShoppingCartCheckoutIcon />,
+      icon: <LocalActivityIcon />,
       subtitle: "Total Points Spend",
       content: "£ 9,963.54 ",
     },
